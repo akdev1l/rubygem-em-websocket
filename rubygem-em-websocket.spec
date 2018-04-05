@@ -8,10 +8,18 @@ Summary: EventMachine based WebSocket server
 License: MIT
 URL: http://github.com/igrigorik/em-websocket
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
+# Test suite depends on specific version of em-websocket-client
+# that isn't pushed into master branch:
+# https://github.com/igrigorik/em-websocket/blob/master/Gemfile#L5
+# Luckily, the package is actually just one small file:
+# https://github.com/movitto/em-websocket-client/blob/expose-websocket-api/lib/em-websocket-client.rb
+Source1: https://raw.githubusercontent.com/movitto/em-websocket-client/expose-websocket-api/lib/em-websocket-client.rb
 BuildRequires: ruby(release)
 BuildRequires: rubygems-devel
 BuildRequires: ruby
 BuildRequires: rubygem(rspec)
+BuildRequires: rubygem(em-http-request)
+BuildRequires: rubygem(em-websocket-client)
 BuildRequires: rubygem(em-spec)
 BuildRequires: rubygem(http_parser.rb)
 BuildArch: noarch
@@ -52,14 +60,7 @@ cp -a .%{gem_dir}/* \
 
 %check
 pushd .%{gem_instdir}
-# we do not have packages needed for tests in fedora
-sed -i '/em-http/ s/^/#/' spec/helper.rb
-sed -i '/em-websocket-client/ s/^/#/' spec/helper.rb
-
-mv spec/integration/common_spec.rb{,.bak}
-mv spec/integration/draft75_spec.rb{,.bak}
-
-rspec spec
+rspec -I %{dirname:%{SOURCE1}} spec
 popd
 
 %files
@@ -80,5 +81,8 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jan 24 2018 Jaroslav Prokop <jar.prokop@volny.cz> - 0.5.1-2
+- Enable test suites after needed packages were imported to Fedora.
+
 * Wed Jan 24 2018 Jaroslav Prokop <jar.prokop@volny.cz> - 0.5.1-1
 - Initial package
