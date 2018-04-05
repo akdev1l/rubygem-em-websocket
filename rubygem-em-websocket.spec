@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.5.1
-Release: 1%{?dist}
+Release: 22%{?dist}
 Summary: EventMachine based WebSocket server
 License: MIT
 URL: http://github.com/igrigorik/em-websocket
