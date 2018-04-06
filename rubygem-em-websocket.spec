@@ -81,7 +81,7 @@ popd
 %{gem_instdir}/spec
 
 %changelog
-* Wed Jan 24 2018 Jaroslav Prokop <jar.prokop@volny.cz> - 0.5.1-2
+* Thu Apr 5 2018 Jaroslav Prokop <jar.prokop@volny.cz> - 0.5.1-2
 - Enable test suites after needed packages were imported to Fedora.
 
 * Wed Jan 24 2018 Jaroslav Prokop <jar.prokop@volny.cz> - 0.5.1-1
