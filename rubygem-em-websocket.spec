@@ -3,7 +3,8 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.5.1
-Release: 22%{?dist}
+Release: 2%{?dist}
+Epoch: 1
 Summary: EventMachine based WebSocket server
 License: MIT
 URL: http://github.com/igrigorik/em-websocket
@@ -30,7 +31,7 @@ EventMachine based WebSocket server.
 
 %package doc
 Summary: Documentation for %{name}
-Requires: %{name} = %{version}-%{release}
+Requires: %{name} = %{epoch}:%{version}-%{release}
 BuildArch: noarch
 
 %description doc
@@ -81,7 +82,10 @@ popd
 %{gem_instdir}/spec
 
 %changelog
-* Thu Apr 5 2018 Jaroslav Prokop <jar.prokop@volny.cz> - 0.5.1-2
+* Fri May 11 2018 Jaroslav Prokop <jar.prokop@volny.cz> - 1:0.5.1-2
+- Fix version number to 2 instead of 22, bump epoch as I did earlier in f28 branch.
+
+* Thu Apr 5 2018 Jaroslav Prokop <jar.prokop@volny.cz> - 0.5.1-22
 - Enable test suites after needed packages were imported to Fedora.
 
 * Wed Jan 24 2018 Jaroslav Prokop <jar.prokop@volny.cz> - 0.5.1-1
