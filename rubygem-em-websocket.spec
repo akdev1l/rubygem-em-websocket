@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.5.1
-Release: 3%{?dist}
+Release: 4%{?dist}
 Epoch: 1
 Summary: EventMachine based WebSocket server
 License: MIT
@@ -82,6 +82,9 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Sat Feb 02 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1:0.5.1-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1:0.5.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
