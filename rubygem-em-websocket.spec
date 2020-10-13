@@ -2,8 +2,8 @@
 %global gem_name em-websocket
 
 Name: rubygem-%{gem_name}
-Version: 0.5.1
-Release: 7%{?dist}
+Version: 0.5.2
+Release: 1%{?dist}
 Epoch: 1
 Summary: EventMachine based WebSocket server
 License: MIT
@@ -57,8 +57,6 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
 
-
-
 %check
 pushd .%{gem_instdir}
 rspec -I %{dirname:%{SOURCE1}} spec
@@ -66,11 +64,12 @@ popd
 
 %files
 %dir %{gem_instdir}
-%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.*
 %exclude %{gem_instdir}/em-websocket.gemspec
 %{gem_libdir}
 %exclude %{gem_cache}
 %{gem_spec}
+%license %{gem_instdir}/LICENCE
 
 %files doc
 %doc %{gem_docdir}
@@ -82,6 +81,10 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Tue Oct 13 11:47:40 CEST 2020 Pavel Valena <pvalena@redhat.com> - 1:0.5.2-1
+- Update to em-websocket 0.5.2.
+  Resolves: rhbz#1882156
+
 * Wed Jul 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1:0.5.1-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
