@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.5.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Epoch: 1
 Summary: EventMachine based WebSocket server
 License: MIT
@@ -81,6 +81,9 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1:0.5.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
 * Tue Oct 13 11:47:40 CEST 2020 Pavel Valena <pvalena@redhat.com> - 1:0.5.2-1
 - Update to em-websocket 0.5.2.
   Resolves: rhbz#1882156
