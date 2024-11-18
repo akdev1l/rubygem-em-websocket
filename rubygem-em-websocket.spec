@@ -3,7 +3,7 @@
 
 Name: rubygem-%{gem_name}
 Version: 0.5.3
-Release: 4%{?dist}
+Release: 5%{?dist}
 Epoch: 1
 Summary: EventMachine based WebSocket server
 License: MIT
@@ -42,6 +42,7 @@ Documentation for %{name}.
 
 %build
 # Create the gem as gem install only works on a gem file
+%gemspec_add_dep -g base64 ">= 0.2.0"
 gem build ../%{gem_name}-%{version}.gemspec
 
 # %%gem_install compiles any C extensions and installs the gem into ./%%gem_dir
@@ -77,6 +78,9 @@ popd
 %{gem_instdir}/spec
 
 %changelog
+* Mon Nov 18 2024 Mamoru TASAKA <mtasaka@fedoraproject.org> - 1:0.5.3-5
+- Add runtime dependency for base64 explicitly for ruby34
+
 * Fri Jul 19 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1:0.5.3-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
 
