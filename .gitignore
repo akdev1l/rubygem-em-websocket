@@ -1,1 +1,3 @@
-/em-websocket-*.gem
+/noarch
+/.build*
+/*.rpm
